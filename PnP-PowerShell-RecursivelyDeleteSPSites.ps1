@@ -4,11 +4,7 @@ Connect-PnPOnline –Url "URL OF YOUR SITE COLLECTION" –Credentials (Get-Crede
 function RemoveSPWebRecursively($web) {
     $subwebs = Get-pnpSubWebs -web $web 
 
-    foreach($subweb in $subwebs) {
-        if ($subweb.Title -ne "Client Sierra") {
-            RemoveSPWebRecursively($subweb)
-        }
-    }
+    foreach($subweb in $subwebs) { RemoveSPWebRecursively($subweb) }
     Write-Host "Deleting " $web.Title
     Write-Host $web.Id
     Remove-PnPWeb -Identity $web.Id  -Force
