@@ -1,5 +1,5 @@
 Import-Module SharePointPnPPowerShellOnline
-Connect-PnPOnline –Url "URL OF YOU SITE COLL" –Credentials (Get-Credential)
+Connect-PnPOnline –Url "URL OF YOUR SITE COLLECTION" –Credentials (Get-Credential)
 
 function RemoveSPWebRecursively($web) {
     $subwebs = Get-pnpSubWebs -web $web 
